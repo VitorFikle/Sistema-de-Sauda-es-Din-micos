@@ -1,29 +1,43 @@
-const mundo = new Date()
-let hora = mundo.getHours()
-let minuto = mundo.getMinutes()
-
-function consertoMinuto() {
-    if (minuto < 10) { minuto = '0' + minuto }
+function formatarNumero(n) { //função que conserta os números
+    if (n < 10) { //se o número for menor que 10
+        return '0' + n //retorna o zero à esquerda do número
+    }
+    return n //retorna o número para a função se o número não for menor que 10
 }
-consertoMinuto()
-let horarioFormatado = `${hora}:${minuto}`
 
-function gerarMensagem(hora, horarioFormatado) {
-    if (hora >= 6 && hora < 12) {
+function gerarMensagem(hora, horarioFormatado) { //função que faz a comparação dos horários.
+    if (hora >= 6 && hora < 12) { //manhã
         console.log(`Bom dia, Vitor. Agora são ${horarioFormatado} da manhã. Tenha um bom dia ☀️ !`)
     }
 
-    else if (hora >= 12 && hora < 18) {
+    else if (hora >= 12 && hora < 18) { //tarde
         console.log(`Boa tarde, Vitor! Agora são ${horarioFormatado} da tarde. Espero que esteja tendo um bom dia 🌻 !`)
     }
 
-    else if (hora >= 18 && hora < 23) {
+    else if (hora >= 18 && hora < 23) { //noite
         console.log(`Boa noite, Vitor. Agora são ${horarioFormatado} da noite. Como foi seu dia? É hora de descansar 🛏️ !`)
     }
 
-    else if (hora >= 0 && hora < 6) {
+    else if (hora >= 0 && hora < 6) { //madrugada
         console.log(`Boa noite, Vitor. Agora são ${horarioFormatado}. O que faz acordado a essa hora? Já passou da hora de dormir, hein 🥱 !`)
     }
 }
 
-gerarMensagem(hora, horarioFormatado)
+function atualizarRelogio() {
+    const mundo = new Date() //pega a "API" da data do mundo
+
+    let hora = mundo.getHours() //pega a hora
+    let minuto = mundo.getMinutes() //pega os minutos
+    let segundos = mundo.getSeconds() //pega os segundos
+
+    horaFormatada = formatarNumero(hora) //adicionar o zero à esquerda em horas menores que 10
+    minutoFormatada = formatarNumero(minuto) //conserta os minutos
+    segundosFormatada = formatarNumero(segundos) //conserta os segundos
+
+    let horarioFormatado = `${horaFormatada}:${minutoFormatada}:${segundosFormatada}` //junta tudo
+
+    gerarMensagem(hora, horarioFormatado)
+}
+
+setInterval(() => { atualizarRelogio() }, 1000);
+//a cada 1 segundo, ele irá executar essa função, forçando a atualizar os dados
