@@ -32,14 +32,14 @@ function atualizarRelogio() {
     let minuto = mundo.getMinutes() //pega os minutos
     let segundos = mundo.getSeconds() //pega os segundos
 
-    horaFormatada = formatarNumero(hora) //adicionar o zero à esquerda em horas menores que 10
-    minutoFormatada = formatarNumero(minuto) //conserta os minutos
-    segundosFormatada = formatarNumero(segundos) //conserta os segundos
+    let horaFormatada = formatarNumero(hora) //adicionar o zero à esquerda em horas menores que 10
+    let minutoFormatada = formatarNumero(minuto) //conserta os minutos
+    let segundosFormatada = formatarNumero(segundos) //conserta os segundos
 
     let horarioFormatado = `${horaFormatada}:${minutoFormatada}:${segundosFormatada}` //junta tudo
 
     gerarMensagem(hora, horarioFormatado)
 }
-
-setInterval(() => { atualizarRelogio() }, 1000);
+atualizarRelogio()
+setInterval(atualizarRelogio, 1000)
 //a cada 1 segundo, ele irá executar essa função, forçando a atualizar os dados
