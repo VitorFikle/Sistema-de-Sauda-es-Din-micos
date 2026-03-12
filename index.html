@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Barra de progresso dinâmica baseada no horário do dia.">
+    <title>Saudações com Horários Dinâmicos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="title">Horários Dinâmicos</h1>
+    </header>
+
+    <main class="content" id="fundo">
+
+        <p id="saudacoes"></p>
+
+        <div class="progressContent">
+            <div id="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div id="progress">
+                    <div id="circle"></div>
+                </div>
+            </div>
+        </div>
+
+        <p id="porcentagem"></p>
+
+    </main>
+
+    <footer>
+        <a href="https://github.com/VitorFikle" target="_blank" rel="noopener">Vitor da Silva</a>
+    </footer>
+
+    <script src="scripts/greetings.js"></script>
+    <script src="scripts/progress.js"></script>
+</body>
+
+</html>
