@@ -5,21 +5,23 @@ function formatarNumero(n) { //função que conserta os números
     return n //retorna o número para a função se o número não for menor que 10
 }
 
+const saudacoes = document.querySelector("#saudacoes")
+
 function gerarMensagem(hora, horarioFormatado) { //função que faz a comparação dos horários.
     if (hora >= 6 && hora < 12) { //manhã
-        console.log(`Bom dia, Vitor. Agora são ${horarioFormatado} da manhã. Tenha um bom dia ☀️ !`)
+        saudacoes.textContent = `Bom dia, Vitor! Agora são ${horarioFormatado} da manhã. \nTenha um bom dia ☀️ !`
     }
 
     else if (hora >= 12 && hora < 18) { //tarde
-        console.log(`Boa tarde, Vitor! Agora são ${horarioFormatado} da tarde. Espero que esteja tendo um bom dia 🌻 !`)
+        saudacoes.textContent = `Boa tarde, Vitor! Agora são ${horarioFormatado} da tarde. \nEspero que esteja tendo um bom dia 🌻 !`
     }
 
     else if (hora >= 18 && hora < 23) { //noite
-        console.log(`Boa noite, Vitor. Agora são ${horarioFormatado} da noite. Como foi seu dia? É hora de descansar 🛏️ !`)
+        saudacoes.textContent = `Boa noite, Vitor! Agora são ${horarioFormatado} da noite. \nComo foi seu dia? É hora de descansar 🛏️ !`
     }
 
     else if (hora >= 0 && hora < 6) { //madrugada
-        console.log(`Boa noite, Vitor. Agora são ${horarioFormatado}. O que faz acordado a essa hora? Já passou da hora de dormir, hein 🥱 !`)
+        saudacoes.textContent = `Boa noite, Vitor! Agora são ${horarioFormatado}. \nO que faz acordado a essa hora? Já passou da hora de dormir, hein 🥱 !`
     }
 }
 
