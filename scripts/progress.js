@@ -1,5 +1,3 @@
-const barra = document.querySelector("#progress") //seleciona a barra que será pintada
-
 const fundo = document.querySelector("#fundo") //seleciona o fundo que troca cor
 
 const cores = [ //seleciona quais cores eu quero pintar o fundo
@@ -114,6 +112,7 @@ setInterval(() => { //seta um intervalo de execução
     atualizarBarra() //executa o cálculo da porcentagem
     porcentagemBarra(porcentagem) //exibe a porcentagem no lugar ideal
     atualizarFundo() //atualiza o fundo
-    bar.setAttribute("aria-valuenow", porcentagem)
+    const progresso = progressoDia()
+    bar.setAttribute("aria-valuenow", Math.round(progresso * 100))
 }, 1000) //intervalo em milissegundos
 
